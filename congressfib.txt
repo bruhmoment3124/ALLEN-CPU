@@ -1,0 +1,22 @@
+load 0 0   7
+load 1 1   37
+add        5
+store 0 0  8
+load 0 4   87
+add        5
+load 1 0   17
+add        5
+store 0 1  28
+load 0 2   47
+load 1 3   77
+sub        6
+store 0 2  48
+jz 16      10b
+jmp 1      1a
+load 1 4   97
+store 0 3  68
+halt       9
+--------------
+Load these values into memory:
+| 0 | 1 | X | 1 |
+X is the number of iterations the program will go through.
