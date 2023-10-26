@@ -1,7 +1,7 @@
 # congresschallenge
 | opcode | mnemonic | operands |
 |---|---|---|
-| **0000** | **NOP** | None |
+| 0000 | **NOP** | None |
 | 0001 | **AND** | None |
 | 0010 | **OR** | None |
 | 0011 | **XOR** | None |
