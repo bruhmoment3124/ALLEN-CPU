@@ -1,2 +1,2 @@
 # congresschallenge
-|opcode|mneumonic|operands|
+| opcode | mnemonic | operands |
