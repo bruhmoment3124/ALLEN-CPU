@@ -1,9 +1,10 @@
 # congresschallenge
+The CPU acts upon two registers, A and B. This allows for arithmetic operations to be 0-operand. The below table shows the opcode, equivalent mnemonic, and the operands or result of an operation (shown with C bitwise operation notation).
 | opcode | mnemonic | operands |
 |---|---|---|
 | 0000 | **NOP** | **None** |
 | 0001 | **AND** | **A &= B** |
-| 0010 | **OR** | **A = A or B** |
+| 0010 | **OR** | **A \|= B** |
 | 0011 | **XOR** | **A ^= B** |
 | 0100 | **NOT** | **~A** |
 | 0101 | **ADD** | **A += B** |
