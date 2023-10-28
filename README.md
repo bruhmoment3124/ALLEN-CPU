@@ -9,16 +9,36 @@ The CPU acts upon two registers, A and B. This allows for arithmetic operations 
 | 0100 | **NOT** | **~A** |
 | 0101 | **ADD** | **A += B** |
 | 0110 | **SUB** | **A -= B** |
-| 0111 | **LD** | **Select, 10b address** |
-| 1000 | **STR** | **Select, 10b address** |
+| 0111 | **LD** | **Select, 10-bit address** |
+| 1000 | **STR** | **Select, 10-bit address** |
 | 1001 | **HALT** | **None** |
-| 1010 | **JMP** | **12b address** |
-| 1011 | **JZ** | **12b address** |
-| 1100 | **JC** | **12b address** |
-| 1101 | **JE** | **12b address** |
+| 1010 | **JMP** | **12-bit address** |
+| 1011 | **JZ** | **12-bit address** |
+| 1100 | **JC** | **12-bit address** |
+| 1101 | **JE** | **12-bit address** |
 
 The instructions and data are entered into memory as hexadecimal and here is the instruction form:
 
-**MSB XXXXXXXXXXX X XXXX LSB**
+(An X means that that bit is not used for a given instruction.)
 
-The first (starting from LSB) four bits are opcode bits. The singular bit is used for instructions that need to select register A or B. The last 11 bits are address bits. In the case of jump instructions, the selector bit is used as a part of the address to achieve 12-bit (4k) addressing. In the case of data access, only 10 bits are used, so the last address bit (MSB) is not used; the selector is needed for data memory operations so it is not used for addressing.
+**For ALU operations:**
+
+**MSB XXXXXXXXXXXX 0000 LSB**
+
+ALU operations are 0-operand because the value of the operation is stored in the A register with the value of the B register preserved.
+
+**For data memory operations:**
+
+**MSB X0000000000 0 0000 LSB**
+
+The singular bit selects the register used in the operation chosen by the 4-bit opcode. The next 10 bits are used as address bits. 
+
+**For jumps:**
+
+**MSB 000000000000 0000 LSB**
+
+The 4-bit opcode specifies the instruction and the 12 bits is the address to be jumped to. Conditions are based on the registers.
+
+
+## quirks
+Instructions should be entered at memory position 1 and not 0.
