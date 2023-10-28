@@ -25,7 +25,7 @@ The instructions and data are entered into memory as hexadecimal and here is the
 
 **MSB XXXXXXXXXXXX 0000 LSB**
 
-ALU operations are 0-operand because the value of the operation is stored in the A register with the value of the B register preserved.
+ALU operations are 0-operand as described above.
 
 **For data memory operations:**
 
