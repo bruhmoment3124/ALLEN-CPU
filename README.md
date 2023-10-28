@@ -31,13 +31,13 @@ ALU operations are 0-operand as described above.
 
 **MSB X0000000000 0 0000 LSB**
 
-The singular bit selects the register used in the operation chosen by the 4-bit opcode. The next 10 bits are used as address bits. 
+The singular bit selects the register used in the operation chosen by the 4-bit opcode. The next 10 bits are used as data memory address bits. 
 
 **For jumps:**
 
 **MSB 000000000000 0000 LSB**
 
-The 4-bit opcode specifies the instruction and the 12 bits is the address to be jumped to. Conditions are based on the registers.
+The 4-bit opcode specifies the instruction and the 12 bits is the address to be jumped to in instruction memory. Conditions are based on the registers.
 
 
 ## quirks
