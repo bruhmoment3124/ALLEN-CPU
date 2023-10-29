@@ -41,4 +41,4 @@ The 4-bit opcode specifies the instruction and the 12 bits is the address to be 
 
 
 ## quirks
-Instructions should be entered at memory position 1 and not 0.
+Instructions should be entered at memory position 1 and not 0. If a halt instruction is not entered, the program will run until the end of instruction memory and will loop around, causing errors. There are no instructions to enter immediate values, all values needed for a computation must be entered into data memory.
