@@ -72,7 +72,7 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="2048000.0"/>
+    <a name="simulationFrequency" val="1000.0"/>
     <comp lib="0" loc="(1050,1030)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="8"/>
