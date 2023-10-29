@@ -37,8 +37,15 @@ The singular bit selects the register used in the operation chosen by the 4-bit 
 
 **MSB 000000000000 0000 LSB**
 
-The 4-bit opcode specifies the instruction and the 12 bits is the address to be jumped to in instruction memory. Conditions are based on the registers.
+The 4-bit opcode specifies the instruction and the 12 bits is the address to be jumped to in instruction memory. Here are the jump conditions:
 
+JMP: unconditionally jump to specified address
+
+JZ: if(A == 0) jump to specified address
+
+JC: if((A+B) > 255) jump to specified address
+
+JE: if(A == B) jump to specified address
 
 ## quirks
 Instructions should be entered at memory position 1 and not 0. If a halt instruction is not entered, the program will run until the end of instruction memory and will loop around, causing errors. There are no instructions to enter immediate values, all values needed for a computation must be entered into data memory.
