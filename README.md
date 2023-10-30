@@ -1,6 +1,6 @@
 # ALLEN-CPU
 The CPU acts upon two registers, A and B. This allows for arithmetic operations to be 0-operand. The below table shows the opcode, equivalent mnemonic, and the operands or result of an operation (shown with C bitwise operation notation).
-| opcode | mnemonic | operands |
+| opcode | mnemonic | operands and result |
 |---|---|---|
 | 0000 | **NOP** | **None** |
 | 0001 | **AND** | **A &= B** |
@@ -9,13 +9,13 @@ The CPU acts upon two registers, A and B. This allows for arithmetic operations 
 | 0100 | **NOT** | **~A** |
 | 0101 | **ADD** | **A += B** |
 | 0110 | **SUB** | **A -= B** |
-| 0111 | **LD** | **Select, 10-bit address** |
-| 1000 | **STR** | **Select, 10-bit address** |
-| 1001 | **HALT** | **None** |
-| 1010 | **JMP** | **12-bit address** |
-| 1011 | **JZ** | **12-bit address** |
-| 1100 | **JC** | **12-bit address** |
-| 1101 | **JE** | **12-bit address** |
+| 0111 | **LD** | **Select, 10-bit address; load value at 10-bit address into A or B** |
+| 1000 | **STR** | **Select, 10-bit address; store A or B into data memory at 10-bit address** |
+| 1001 | **HALT** | **None; halt program** |
+| 1010 | **JMP** | **12-bit address; jump unconditionally to 12-bit address** |
+| 1011 | **JZ** | **12-bit address; jump to 12-bit address if A is zero** |
+| 1100 | **JC** | **12-bit address; jump to 12-bit address if A and B exceed 8 bits when added together (see quirks)** |
+| 1101 | **JE** | **12-bit address; jump to 12-bit address if A and B are equal** |
 
 The instructions and data are entered into memory as hexadecimal and here is the instruction form:
 
@@ -39,16 +39,11 @@ The singular bit selects the register used in the operation chosen by the 4-bit 
 
 The 4-bit opcode specifies the instruction and the 12 bits is the address to be jumped to in instruction memory. Here are the jump conditions:
 
-JMP: unconditionally jump to specified address
-
-JZ: if(A == 0) jump to specified address
-
-JC: if((A+B) > 255) jump to specified address
-
-JE: if(A == B) jump to specified address
-
 ## Quirks
-Instructions should be entered at memory position 1 and not 0. If a halt instruction is not entered, the program will run until the end of instruction memory and will loop around, causing errors. There are no instructions to enter immediate values, all values needed for a computation must be entered into data memory.
+- Instructions should be entered at memory position 1 and not 0.
+- If a halt instruction is not entered, the program will run until the end of instruction memory and will loop around, causing errors.
+- There are no instructions to enter immediate values, all values needed for a computation must be entered into data memory.
+- The JC instruction must be called before actually carrying. This is because it adds together A and B and tests if it carries, so the values must be in A and B.
 
 ## Example 1
 This program computes two 8-bit Fibonacci numbers:
