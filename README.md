@@ -51,6 +51,7 @@ JE: if(A == B) jump to specified address
 Instructions should be entered at memory position 1 and not 0. If a halt instruction is not entered, the program will run until the end of instruction memory and will loop around, causing errors. There are no instructions to enter immediate values, all values needed for a computation must be entered into data memory.
 
 ## Example 1
+This program computes two 8-bit Fibonacci numbers:
 | plaintext instruction (decimal) | hex instruction |
 |---|---|
 | **0 0 LD** | **7** |
@@ -72,9 +73,9 @@ Instructions should be entered at memory position 1 and not 0. If a halt instruc
 | **3 0 STR** | **68** | 
 | **HALT** | **9** |
 
-Load these values into memory:
+Load these values into data memory (starting at 0):
 
 | 0 | 1 | X | 1 |
 
-X is the number of iterations; I recommend 6 to get the 2 highest Fibonacci numbers.
+X is the number of iterations; I recommend 6 to get the two largest 8-bit Fibonacci numbers.
 ## Example 2
