@@ -47,5 +47,34 @@ JC: if((A+B) > 255) jump to specified address
 
 JE: if(A == B) jump to specified address
 
-## quirks
+## Quirks
 Instructions should be entered at memory position 1 and not 0. If a halt instruction is not entered, the program will run until the end of instruction memory and will loop around, causing errors. There are no instructions to enter immediate values, all values needed for a computation must be entered into data memory.
+
+## Example 1
+| plaintext instruction (decimal) | hex instruction |
+|---|---|
+| **0 0 LD** | **7** |
+| **1 1 LD** | **37** |
+| **ADD** | **5** |
+| **0 0 STR** | **8** |
+| **4 0 LD** | **87** |
+| **ADD** | **5** |
+| **0 1 LD** | **17** |
+| **ADD** | **5** |
+| **1 0 STR** | **28** |
+| **2 0 LD** | **47** |
+| **3 1 LD** | **77** |
+| **SUB** | **6** |
+| **2 0 STR** | **48** |
+| **16 JZ** | **10b** |
+| **1 JMP** | **1a** |
+| **4 1 LD** | **97** |
+| **3 0 STR** | **68** | 
+| **HALT** | **9** |
+
+Load these values into memory:
+
+| 0 | 1 | X | 1 |
+
+X is the number of iterations; I recommend 6 to get the 2 highest Fibonacci numbers.
+## Example 2
