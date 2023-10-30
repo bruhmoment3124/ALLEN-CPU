@@ -79,3 +79,35 @@ Load these values into data memory (starting at 0):
 
 X is the number of iterations; I recommend 6 to get the two largest 8-bit Fibonacci numbers.
 ## Example 2
+This example adds two 16-bit numbers using the "jump if carry" (JC) instruction.
+| plaintext instruction (decimal) | hex instruction |
+|---|---|
+| **0 0 LD** | **7** |
+| **2 1 LD** | **57** |
+| **ADD** | **5** |
+| **0 0 STR** | **8** |
+| **1 0 LD** | **27** |
+| **3 1 LD** | **77** |
+| **9 JC** | **9c** |
+| **16 JMP** | **10a** |
+| **ADD** | **5** |
+| **1 0 STR** | **28** |
+| **0 0 LD** | **7** |
+| **4 1 LD** | **97** |
+| **ADD** | **5** |
+| **0 0 STR** | **8** |
+| **18 JMP** | **12a** |
+| **ADD** | **5** |
+| **1 0 STR** | **28** |
+| **5 0 LD** | **a7** |
+| **5 1 LD** | **b7** |
+| **2 0 STR** | **48** |
+| **3 0 STR** | **68** |
+| **4 0 STR** | **88** |
+| **HALT** | **9** |
+
+Load these values into data memory (starting at 0):
+
+| X0 | X1 | Y0 | Y1 | 1 |
+
+X0 and Y0 are the most significant 8 bits and X1 and Y1 are the least significant 8 bits.
