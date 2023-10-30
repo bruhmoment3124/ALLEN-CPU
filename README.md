@@ -1,4 +1,5 @@
 # ALLEN-CPU
+![image](https://github.com/bruhmoment3124/ALLEN-CPU/assets/73769756/83d4578c-7d26-479a-856f-035bf964a7f5)
 The CPU acts upon two registers, A and B. This allows for arithmetic operations to be 0-operand. The below table shows the opcode, equivalent mnemonic, and the operands or result of an operation (shown with C bitwise operation notation).
 | opcode | mnemonic | operands and result |
 |---|---|---|
